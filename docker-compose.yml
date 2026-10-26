@@ -1,0 +1,37 @@
+services:
+  mariadb:
+    image: 'mariadb:10.7'
+    container_name: mariadb
+    restart: unless-stopped
+    command: --bind_address=0.0.0.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./schema:/docker-entrypoint-initdb.d
+    environment:
+      - MARIADB_ROOT_PASSWORD=fdtoLF93bwmZ
+      - MARIADB_DATABASE=grocer
+      - MARIADB_USER=app
+      - MARIADB_PASSWORD=gVdYVZxC0SWk
+    logging:
+      driver: "local"
+      options:
+        max-size: "25m"
+        max-file: "1"
+        compress: "false"
+        mode: "non-blocking"
+
+  redis:
+    image: 'redis:6.2'
+    container_name: redis
+    restart: unless-stopped
+    command: --bind 0.0.0.0
+    ports:
+      - "6379:6379"
+    logging:
+      driver: "local"
+      options:
+        max-size: "25m"
+        max-file: "1"
+        compress: "false"
+        mode: "non-blocking"

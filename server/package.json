@@ -1,0 +1,16 @@
+{
+  "name": "grocer-server",
+  "version": "1.0.0",
+  "description": "Grocery store API: items from MariaDB, shopping cart in Redis",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "dev": "node --env-file=.env --watch src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6",
+    "redis": "^6.3.0"
+  }
+}
